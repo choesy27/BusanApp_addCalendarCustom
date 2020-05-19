@@ -1,15 +1,6 @@
 package com.example.busanapp.ui.home;
 
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,8 +20,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.busanapp.LoadingActivity;
-import com.example.busanapp.MainActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
 import com.example.busanapp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -41,7 +37,6 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -52,19 +47,17 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
-//추가
 import noman.googleplaces.NRPlaces;
 import noman.googleplaces.Place;
 import noman.googleplaces.PlaceType;
 import noman.googleplaces.PlacesException;
 import noman.googleplaces.PlacesListener;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
+//추가
 
 
 public class HosMapFragment extends Fragment implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback, PlacesListener {
@@ -115,7 +108,7 @@ public class HosMapFragment extends Fragment implements OnMapReadyCallback, Acti
 
         previous_marker = new ArrayList<Marker>();
 
-        Button button = (Button) view.findViewById(R.id.button);
+        Button button = (Button) view.findViewById(R.id.btn_hosmap);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -561,6 +554,11 @@ public class HosMapFragment extends Fragment implements OnMapReadyCallback, Acti
         });
     }
 
+    @Override
+    public void onPlacesFinished() {
+
+    }
+
     public void showPlaceInformation (LatLng location){
         mMap.clear();
 
@@ -569,7 +567,7 @@ public class HosMapFragment extends Fragment implements OnMapReadyCallback, Acti
 
         new NRPlaces.Builder()
                 .listener((PlacesListener) getActivity())
-                .key("AIzaSyAn06X4uRQehSd86u35Yoy5yoAnW2iS3ec")
+                .key("AIzaSyCVXAin1pBGTpLaWSApK7o3DFVOqRpWBiU")
                 .latlng(location.latitude, location.longitude)
                 .radius(500)   //500미터 내 검색
                 .type(PlaceType.HOSPITAL)
@@ -577,8 +575,5 @@ public class HosMapFragment extends Fragment implements OnMapReadyCallback, Acti
                 .execute();
     }
 
-    @Override
-    public void onPlacesFinished() {
 
-    }
 }

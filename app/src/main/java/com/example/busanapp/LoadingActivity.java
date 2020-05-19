@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -22,10 +23,20 @@ import com.example.busanapp.ui.home.HosMapFragment;
 import com.example.busanapp.ui.home.HospitalFragment;
 import com.example.busanapp.ui.home.ParkingFragment;
 import com.example.busanapp.ui.home.PublicartFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.HashSet;
+import java.util.List;
 
-public class LoadingActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import noman.googleplaces.Place;
+import noman.googleplaces.PlacesException;
+import noman.googleplaces.PlacesListener;
+
+
+public class LoadingActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ActivityCompat.OnRequestPermissionsResultCallback, PlacesListener {
     //HomeFragment fragment1;
 
     private DrawerLayout drawer;
@@ -127,5 +138,22 @@ public class LoadingActivity extends AppCompatActivity implements NavigationView
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onPlacesFailure(PlacesException e) {
+    }
+
+    @Override
+    public void onPlacesStart() {
+    }
+
+    @Override
+    public void onPlacesSuccess(final List<Place> places) {
+    }
+
+    @Override
+    public void onPlacesFinished() {
+
     }
 }

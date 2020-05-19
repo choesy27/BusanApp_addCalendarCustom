@@ -21,6 +21,19 @@
         </menu>
     </item>
 
+    <item android:title="지도">
+
+        <menu>
+            <item
+                android:id="@+id/nav_map"
+                android:checkable="true"
+                android:icon="@drawable/ic_map"
+                android:title="의료시설 지도로 보기" />
+
+        </menu>
+
+    </item>
+
     <item android:title="편의시설">
 
         <menu>
@@ -92,17 +105,6 @@
 
     </item>
 
-    <item android:title="지도">
 
-        <menu>
-            <item
-                android:id="@+id/nav_map"
-                android:checkable="true"
-                android:icon="@drawable/ic_map"
-                android:title="지도" />
-
-        </menu>
-
-    </item>
 
 </menu>
