@@ -81,6 +81,7 @@ public class CalendarFragment extends Fragment {
 
         getMemoCursor();
         /*
+        // error
         mCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
