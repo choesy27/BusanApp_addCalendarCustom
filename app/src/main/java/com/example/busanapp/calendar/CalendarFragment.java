@@ -45,6 +45,8 @@ public class CalendarFragment extends Fragment {
     private AlertDialog.Builder builder;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    CustomCalendarView customCalendarView;
+
     public CalendarFragment() {
 
     }
@@ -58,27 +60,27 @@ public class CalendarFragment extends Fragment {
         builder = new AlertDialog.Builder(getActivity());
         textAdapter = new TextAdapter(list);
 
-        mCalendarView = (CalendarView) view.findViewById(R.id.calendar);
+        customCalendarView = (CustomCalendarView) view.findViewById(R.id.custom_calendar_view);
         mTextDate = (TextView) view.findViewById(R.id.selectDate);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerMemo);
 
         Date date = new Date();
         mTime = mFormat.format(date);
-        mTextDate.setText(mTime);
+//      mTextDate.setText(mTime);       // error
 
         mContext = getActivity();
 
         dbHelper = MemoDBHelper.getInstance(getActivity());
 
-        recyclerView.setHasFixedSize(true);
+//      recyclerView.setHasFixedSize(true);         // error
 
         mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
+//      recyclerView.setLayoutManager(mLayoutManager);      // error
 
-        recyclerView.setAdapter(textAdapter);
+//      recyclerView.setAdapter(textAdapter);           // error
 
         getMemoCursor();
-
+        /*
         mCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
@@ -87,7 +89,7 @@ public class CalendarFragment extends Fragment {
                 mTextDate.setText(mTime);
             }
         });
-
+        */
         textAdapter.setOnItemClickListener(new TextAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int pos) {

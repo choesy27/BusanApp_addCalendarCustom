@@ -74,7 +74,7 @@ public class TextAdapter extends RecyclerView.Adapter<TextAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.calendar_list, parent, false);
+        View view = inflater.inflate(R.layout.memo_list, parent, false);
         TextAdapter.ViewHolder vh = new TextAdapter.ViewHolder(view);
 
         return vh;
